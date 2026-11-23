@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Black Hole Productions — AI-студия кино и сериалов</title>
+  <meta name="description" content="Black Hole Productions — студия, которая создаёт сериалы, фильмы и скетчи с помощью искусственного интеллекта.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Black Hole Productions">
+  <meta property="og:description" content="Сериалы, фильмы и скетчи, созданные с помощью ИИ. Истории, которые затягивают.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700;900&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__ring"></div>
+    <div class="loader__text">Приближаемся к горизонту событий…</div>
+  </div>
+
+  <!-- Black hole (WebGL) -->
+  <canvas id="bh" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="logo" aria-label="Black Hole Productions">
+      <svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg" x1="0" x2="1">
+            <stop offset="0" stop-color="#fff2d6"/>
+            <stop offset=".5" stop-color="#ff9a3c"/>
+            <stop offset="1" stop-color="#ff3d1f" stop-opacity=".2"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="20" cy="20" rx="18" ry="5.5" fill="none" stroke="url(#lg)" stroke-width="2.2" transform="rotate(-12 20 20)"/>
+        <circle cx="20" cy="20" r="8.5" fill="#000" stroke="#ffd9a0" stroke-width="1.2"/>
+      </svg>
+      <span>Black Hole<em>Productions</em></span>
+    </a>
+    <nav class="nav__links">
+      <a href="#about" data-magnetic>О студии</a>
+      <a href="#work" data-magnetic>Что мы делаем</a>
+      <a href="#process" data-magnetic>Процесс</a>
+      <a href="#reel" data-magnetic>Шоурил</a>
+    </nav>
+    <a href="#contact" class="btn btn--small" data-magnetic>Связаться</a>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" data-bh="0.21,0,0.02,0.22">
+      <p class="eyebrow reveal">AI Film Studio</p>
+      <h1 class="hero__title" aria-label="Black Hole">
+        <span class="split">BLACK</span>
+        <span class="split split--outline">HOLE</span>
+      </h1>
+      <p class="hero__sub reveal">P R O D U C T I O N S</p>
+      <p class="hero__lead reveal">Сериалы, фильмы и скетчи, созданные с помощью искусственного интеллекта.<br>Истории, от которых невозможно оторваться.</p>
+      <div class="hero__cta reveal">
+        <a href="#work" class="btn" data-magnetic>Наши проекты</a>
+        <a href="#contact" class="btn btn--ghost" data-magnetic>Обсудить идею</a>
+      </div>
+      <a href="#about" class="scroll-hint" aria-label="Листать вниз">
+        <span>Листай вниз</span><i></i>
+      </a>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>СЕРИАЛЫ</span><b>✦</b><span>ФИЛЬМЫ</span><b>✦</b><span>СКЕТЧИ</span><b>✦</b><span>AI CINEMA</span><b>✦</b>
+        <span>СЕРИАЛЫ</span><b>✦</b><span>ФИЛЬМЫ</span><b>✦</b><span>СКЕТЧИ</span><b>✦</b><span>AI CINEMA</span><b>✦</b>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about" data-bh="0.09,0.42,0.05,0.35">
+      <div class="container">
+        <p class="eyebrow reveal">01 — Горизонт событий</p>
+        <h2 class="h2 reveal">Мы затягиваем зрителя <span class="grad">в другие миры</span></h2>
+        <div class="about__grid">
+          <p class="reveal">Black Hole Productions — студия нового поколения. Сценарий, визуал, персонажи, голоса, музыка и монтаж рождаются на стыке человеческой фантазии и нейросетей.</p>
+          <p class="reveal">То, что раньше требовало съёмочной группы, павильонов и месяцев работы, мы создаём быстрее — без потери кинематографичности. Любая эпоха, любая планета, любой жанр.</p>
+        </div>
+        <div class="stats">
+          <div class="stat reveal"><b data-count="100">0</b><span>%</span><p>создано с помощью ИИ</p></div>
+          <div class="stat reveal"><b>∞</b><p>вселенных для историй</p></div>
+          <div class="stat reveal"><b data-count="0">0</b><p>ограничений для фантазии</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section work" id="work" data-bh="0.13,-0.45,-0.05,0.12">
+      <div class="container">
+        <p class="eyebrow reveal">02 — Что мы делаем</p>
+        <h2 class="h2 reveal">Три формата.<br><span class="grad">Одна гравитация.</span></h2>
+        <div class="cards">
+          <article class="card reveal" data-tilt>
+            <div class="card__num">01</div>
+            <h3>Сериалы</h3>
+            <p>Многосерийные истории с живыми персонажами, сквозным сюжетом и узнаваемым визуальным стилем. От драмы до фантастики.</p>
+            <span class="card__tag">Series</span>
+          </article>
+          <article class="card reveal" data-tilt>
+            <div class="card__num">02</div>
+            <h3>Фильмы</h3>
+            <p>Короткий и полный метр с кинематографичной картинкой, музыкой и звуком. Миры, которые невозможно снять на камеру.</p>
+            <span class="card__tag">Films</span>
+          </article>
+          <article class="card reveal" data-tilt>
+            <div class="card__num">03</div>
+            <h3>Скетчи</h3>
+            <p>Короткие, смешные, вирусные. Скетчи для соцсетей и брендов, которые смотрят до конца и пересылают друзьям.</p>
+            <span class="card__tag">Sketches</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section process" id="process" data-bh="0.07,0.5,0.28,0.45">
+      <div class="container">
+        <p class="eyebrow reveal">03 — Процесс</p>
+        <h2 class="h2 reveal">Как рождается <span class="grad">история</span></h2>
+        <ol class="steps">
+          <li class="step reveal"><span>01</span><h4>Идея</h4><p>Находим историю, героев и тон. Пишем сценарий вместе с ИИ.</p></li>
+          <li class="step reveal"><span>02</span><h4>Мир</h4><p>Генерируем локации, стиль, свет и атмосферу каждой сцены.</p></li>
+          <li class="step reveal"><span>03</span><h4>Герои</h4><p>Создаём персонажей, их внешность, движения и голоса.</p></li>
+          <li class="step reveal"><span>04</span><h4>Финал</h4><p>Монтаж, музыка, звук, цвет — и история готова к премьере.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- REEL -->
+    <section class="section reel" id="reel" data-bh="0.16,0.0,0.0,0.08">
+      <div class="container">
+        <p class="eyebrow reveal">04 — Шоурил</p>
+        <h2 class="h2 reveal">Скоро <span class="grad">здесь</span></h2>
+        <div class="reel__frame reveal" data-tilt>
+          <div class="reel__play" aria-hidden="true"><i></i></div>
+          <p>Шоурил студии появится совсем скоро</p>
+          <span class="reel__corner reel__corner--tl"></span>
+          <span class="reel__corner reel__corner--tr"></span>
+          <span class="reel__corner reel__corner--bl"></span>
+          <span class="reel__corner reel__corner--br"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (swallowed by the hole) -->
+    <section class="section contact" id="contact" data-bh="0.95,0,0,0.25">
+      <div class="container contact__inner">
+        <p class="eyebrow reveal">05 — Контакты</p>
+        <h2 class="contact__title reveal">Шагни<br>за горизонт</h2>
+        <p class="reveal">Есть идея для сериала, фильма или рекламы? Напишите нам — превратим её в историю.</p>
+        <a href="mailto:hello@blackhole.am" class="contact__mail reveal" data-magnetic>hello@blackhole.am</a>
+        <div class="socials reveal">
+          <a href="#" data-magnetic>Instagram</a>
+          <a href="#" data-magnetic>YouTube</a>
+          <a href="#" data-magnetic>Telegram</a>
+          <a href="#" data-magnetic>TikTok</a>
+        </div>
+      </div>
+      <footer class="footer">© <span id="year"></span> Black Hole Productions. Всё создано с любовью и ИИ.</footer>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
